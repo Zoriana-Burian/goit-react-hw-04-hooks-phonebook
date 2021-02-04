@@ -1,14 +1,15 @@
 //import logo from './logo.svg';
 import './App.css';
-import React, {useState} from 'react';
+import React from 'react';
 import ContactList from './components/ContactList/ContactList';
 import ContactForm from './components/ContactForm/ContactForm';
 import shortid from 'shortid';
 import Filter from './components/Filter/Filter';
+import useLocalStorage from './components/hooks/useLocalStorage';
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState('');
+  const [contacts, setContacts] = useLocalStorage('contacts', []);
+  const [filter, setFilter] = useLocalStorage('filter', '');;
 
  const addContact = (name, number) => {
    
